@@ -1,0 +1,469 @@
+.home-button {
+   background-color: green;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+ }
+ .home-button:hover {
+   color: gold;
+    }
+
+.products-button {
+      background-color: rgb(31, 20, 30);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+.products-button:hover {
+      color: gold;
+       }
+   
+
+ .list-button {
+   background-color:blueviolet;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+ }
+
+ select {
+   width:50px;
+   height:25%;
+   text-align: center;
+   }
+
+   input[type="submit"] {
+   font-size: large;
+   font-family: 'Times New Roman', Times, serif;
+   border:blue #ff0000;
+   background-color: lightblue;
+
+ }
+
+ input {
+   width:206px;
+   height:25px;
+   text-align: left;
+   font-size: medium;
+   
+}
+
+input[type="submit"]:hover {
+   color: red;
+    }
+
+ #submit{
+   width:206px;
+   height:30px;
+   background-color: lightblue;
+ }
+ 
+ .signup-button {
+   background-color:lightgrey;
+   color: blueviolet;
+   width:50px;
+   padding: 10px 20px;
+   border-radius: 5px;
+   font-weight: bold;
+   font-family: 'Times New Roman', Times, serif;
+   text-decoration: none;
+ }
+ .signup-button:hover {
+   color: red;
+ }
+ 
+ .DB-button {
+   background-color:blue ;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+ }
+
+ .DB-button:hover {
+   background-color:blue ;
+   color: gold;
+ }
+ .title-button {
+   background-color:blue ;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+ }
+
+h4, h5{
+ font-family: thabit;
+ text-align: left;
+
+}
+h1, h2{
+   font-size: larger;
+   color: black;
+   font-family: 'thabit';
+   text-align: center;
+}
+
+h3{
+    font-size: larger;
+    text-align: center;
+    background-color:blue;
+    color: gold;
+    font-family: thabit;
+   }
+
+   .nav-link{
+      color:black;
+   }
+   .nav-link:hover{
+      color:red;}
+   
+td, th  {
+    text-align: right;
+    font-size: medium ;
+    font-family: 'thabit';
+}
+
+thead{
+    color:gold;
+    background-color: blue;
+    font-size: 14px;
+    font-weight:bolder;
+    text-align:right;
+}
+
+.dropdown-item:hover{
+   color: red;
+   background-color: blue;
+}
+.dropdown {
+   position: relative;
+   display: inline-block;
+   text-align: right;
+}
+.dropdown-content {
+   display: none;
+   position: absolute;
+   min-width: 160px;
+   margin-top: 8px;
+   text-align: right;
+}
+.dropdown-content a {
+   text-align: right;
+   display: block;
+   padding: 8px 16px;
+   text-decoration: none;
+   }
+.dropdown:hover 
+.dropdown-content {
+   display: block;
+   color: blue;
+   }
+.dropdown-content a:hover {
+   background-color:rgb(79, 47, 221);    
+   color: #ff0000;  
+   }
+
+select {
+ margin-top: 1em;
+ padding: .5em 1em;
+ font-size: 1.5em;
+ border-radius:0;
+ }
+
+form {
+  direction: rtl;
+  text-align: right;
+}
+form-l {
+   direction: ltr;
+   text-align: left;
+ }
+
+ label {
+display: block;
+margin-bottom: 5px;
+}
+
+#myInput-price {
+   width: 10px;
+   color:blue;
+   background-color: white;
+}
+
+
+#package{
+   width: 70px;
+   text-align: center;
+   color:blue;
+   background-color: whitesmoke;
+}
+
+#unit_price {
+   width: 70px;
+   height: 30px;
+   text-align: center;
+   color:blue;
+   background-color: whitesmoke;
+}
+#quantity {
+   width: 50px;
+   height: 30px;
+   text-align: left;
+   color:blue;
+   background-color: whitesmoke;
+   }
+#stock {
+   width: 70px;
+   height: 30px;
+   text-align: center;
+   color:blue;
+   background-color: whitesmoke;
+      }
+   
+#result{
+   width: 200px;
+   color:gold;
+   background-color: blue;
+ }
+
+#save {
+   width: 15px;
+   height: 30px;
+   color:black;
+   background-color: white;
+}
+
+#u-price {
+background-color: orange;
+text-align: center;
+}
+
+#prod_name {
+   width:300px;
+   text-align: center;
+   background-color: whitesmoke;   
+}
+
+#farm{
+   width:200px;
+   color: blue;
+   background-color: whitesmoke;
+   text-align: center;
+   border-color: black;
+   }
+   
+#name{
+   width:200px;
+   color: black;
+   background-color:white;
+   text-align: center;
+   border-color: black;
+   }
+#name:hover{
+      color: blue;
+      background-color: lightblue;
+      }
+
+#phone{
+      width:200px;
+      color: black;
+      background-color:white;
+      text-align:center;
+      border-color:black;
+      }
+#phone:hover{
+      color: blue;
+      background-color: lightblue;
+       }
+
+#email{
+      width:200px;
+      color: black;
+      background-color:white;
+      text-align:center;
+      border-color:black;
+      }
+#email:hover{
+         color: blue;
+         background-color: lightblue;
+          }
+   
+#password{
+      width:200px;
+      color:black;
+      background-color:white;
+      text-align: center;
+      border-color: black;
+         }
+#password:hover{
+      color:blue;
+      background-color: lightblue;
+         }
+         
+#mail{
+      width:200px;
+      color: black;
+      background-color: white;
+      text-align: center;
+      border-color: black;
+      }
+   
+.card {
+ color: black; /* Initial color */
+ text-align: right;
+ padding-left: 10px;
+ border: 2px solid blue;
+
+}
+.card-title{
+ direction: rtl;
+ text-align: right;
+}
+.card-text{
+ direction: rtl;
+ text-align: right;
+}
+.card:hover {
+ color: orangered; /* Color on hover */
+}
+
+.container {
+   background-color: lightgray;
+   color:blue;
+   margin-top:10px ;
+   margin-bottom:10px ;
+   text-align: right;
+   padding-top: 10px;
+   padding-left: 20px;
+   padding-bottom: 10px;
+}
+
+.container-l {
+   background-color:lightgray;
+   color:blue;
+   margin-right: 20px;
+   margin-left: 10px;
+   margin-top: 10px;
+   text-align:left;
+   padding-top:10px;
+   padding-left:20px;
+   padding-bottom:10px;
+}
+
+.container-price{
+      display:inline-flex
+  }
+ 
+.container2 a {
+color: blue;
+display: inline;
+background-color:white;
+}   
+.card-title1{
+ color: black;
+ padding: 10px;
+ text-align: center;
+ background-color:rgb(221,235, 221);
+}
+.card-title2{
+ color: white;
+ text-align: center;
+ padding: 10px;
+ background-color:rgb(4, 28, 68);
+}
+ img{
+   padding-top: 10px;
+   padding-bottom: 10px;
+ }
+ .button-container {
+   display: flex;
+   justify-content:space-between;
+ }
+ .left-buttons {
+   display:flex;
+   justify-content:left;
+ }
+ .right-buttons {
+   display:flex ;
+   justify-content:right;
+ }
+.link-box {
+ color:black;
+ background-color: orange;
+ font-weight: bolder;
+ font-style: normal;
+ font-size: xx-large;
+ padding: 3px;
+ padding-right: 10px;
+ padding-left: 10px;
+ padding-bottom: 1px;
+ margin-right: 15px;
+ margin-bottom: 3px;
+ display: inline-block;
+}
+p{
+ text-align: center;
+}
+.footer {>
+   font-size: small;
+    text-align: center;
+    color: darkviolet;
+    position:fixed ;
+    bottom: 5px;
+    width: 100%;
+    height: 30px;
+    
+     }
+
+   select{
+		margin-top: 100px;
+		width: 250px;
+		height: 40px;
+	}
+	text{
+		size: 14px;
+		color: blue;
+	}
+	form {
+  	direction: left;
+  	text-align: left;
+		}
+
+	.form-container select{
+		text-align: center;
+      	}	
+	.container{
+				padding-top: 20px;
+				width:100%;
+				align-items: end;
+				background-color:lightgray;
+			}
+	h4{
+				color: rgb(2, 2, 29);
+				text-align: center;
+			}
+    .container input {
+		width:100px;
+	 	color: black;
+      padding : 0px;
+      margin-bottom: 2px;
+		
+      text-align:center;
+		}
+	.container-1{
+	display:inline;
+		}

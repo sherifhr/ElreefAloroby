@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> elreef eloroby Community </title>
+<meta charset="UTF-8">
+<style>
+    .container-A{
+        direction: rtl;
+        border-radius: 5px;
+        background-color: black;
+        width:100%;
+        color:blue;
+        padding:5px ;
+        text-align: right;
+        margin-top: 0px;
+         }
+    .dropdown-toggle{
+        background-color: blue;
+        color: white;
+
+    }
+
+    .dropdown-toggle:hover{
+        background-color: blue;
+        color: gold;
+        
+    }
+</style>
+<meta name="keywords" content="elreef-eloroby, elreef, عبد الله سعد, الريف اﻷوربي">
+<meta name="description" content="cairo-alex road kilo 58 ">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles1.css') }}">
+
+</head>
+
+<body>
+{% extends "index.html" %}
+    {% block content %}
+    <div class="container-A">
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Login menu
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{url_for('login')}}"> Login to Farms</a></li>
+                <li><a class="dropdown-item" href="{{url_for('login_market')}}">Login to Market</a></li>
+            </ul>
+        </div>
+        <a href="{{url_for('prod_list')}}" target="_blank" class="btn btn-primary btn-sm">عرض منتجات السوق</a>
+  
+        <a href="https://www.masrawy.com" target="_blank" class="btn btn-primary btn-sm" tabindex="-1" role="button" aria-disabled="true" ><i class="fa fa-fw fa-newspaper-o">&nbsp</i>News</a>
+        <a href="view_gallery_images" target="_blank" class="btn btn-danger btn-sm" tabindex="-1" role="button" aria-disabled="true" ><i class="fa fa-camera-retro">&nbsp</i>Gallary</a>
+    
+        <a href="mailto:s.refaat@mail.com" target="_blank" class="btn btn-success btn-sm" tabindex="-1" role="button" aria-disabled="true" ><i class="fa fa-fw fa-envelope">&nbsp</i>Mail admin</a>
+        <a href="map-page" target="_blank" class="btn btn-warning btn-sm" tabindex="-1" role="button" aria-disabled="true" ><i class="fa fa-search">&nbsp</i></i>Location Map</a>
+
+        
+    </div>
+    <h2>مجتمع الريف اﻷوربي</h2>
+    <div class="grid-1">
+        <div class="grid-item">القاهره القديمه
+            <div>
+                <div class="image-container">
+                    <div class="image-frame">
+                        <a href="static/images/old.jpeg" target="_blank">
+                            <img src="/static/images/old.jpeg" alt="Description of the image">
+                        </a>
+                         
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <div class="grid-item">جامع الرفاعى
+            <div>
+                <div class="image-container">
+                    <div class="image-frame">
+                        <a  href="/static/images/Rifai.jpg" target="_blank">
+                            <img src="/static/images/Rifai.jpg" alt="Image Description">
+                        </a> 
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <div class="grid-item">الجامع اﻷزرق
+            <div>
+                <div class="image-container">
+                    <div class="image-frame">
+                        <a  href="static/images/Blue-mosque.jpg" target="_blank"> 
+                            <img src="static/images/Blue-mosque.jpg" alt="Image Description">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">جامع ايوب
+            <div>
+                <div class="image-container">
+                    <div class="image-frame">
+                        <a  href="static/images/Eyup-Mosque.jpg" target="_blank">    
+                            <img src="static/images/Eyup-Mosque.jpg" alt="Image Description">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">EGYPT
+            <div>
+                <div class="image-container">
+                    <div class="image-frame">
+                        <a  href="static/images/old.jpeg" target="_blank">
+                            <img src="static/images/old.jpeg" alt="Image Description">
+                        </a><!br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add more grid items as needed -->
+    <div class="grid">
+        <div class="grid-item grid-item-1" >
+            <button class="btn btn-success">مكتب اداره الريف</button>
+                <div class="card" style="width: 18rem;">
+                    <h5 class="card-title">
+                    <div class="card-body">
+                        <p class="card-text">
+                           اﻷعضاء<br>
+                            السيد / مسئول رقم  1 <br>
+                            السيد / مسئول رقم  2 <br>
+                            السيد / مسئول رقم  3 <br>
+                            السيد / مسئول رقم  4 <br>
+                           </p>
+                        <a  href="static/images/Hagia-Sophia.jpeg" target="_blank">View</a> 
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <a href="#" class="btn btn-success">العياده الطبيه</a>
+                    <img src="static/images/clinic.jpeg" " class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">العياده الطبيه</h5>
+                        <p class="card-text">
+                                    مواعيد العمل 
+                                    الساعه  09:00 صباحا    -  الساعه 7:00 مساء
+                                    ارقام اﻷتصال: 
+                                    رقم #1
+                                    رقم #2
+                                    مسئول اﻷستقبال :
+                                    السيد: دكتور  س 
+                            .</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="static/images/pharmacy.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Pharmacy</h5>
+                            <p class="card-text">
+                                                        الصيدليه :
+                                مواعيد العمل :
+                                الساعه  09:00 صباحا    -  الساعه 10:00 مساء
+                                ارقام اﻷتصال: 
+                                رقم #1
+                                رقم #2
+                                مسئول اﻷستقبال :
+                                السيد: دكتور  س 
+                            </p>
+                        <a href="#" class="btn btn-primary">لينك</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Security Consultations</h5>
+                      <p class="card-text">physical and electronic security advisory.</p>
+                      <p class="card-text">extensive experience with No.1 Bank in KSA.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <p class="card-text"></p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>	
+                <div class="card" style="width: 18rem;">
+                    <img src="static/images/mechanic.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">ورشه اصلاح جميع انواع الكاوتش
+                        Vehicle repair shop
+                        10+ years in business
+                        Closed ⋅ Opens 09am Fri
+                        Zeitoun
+                        011 23111609.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item grid-item-2">
+                <img src="https://habibacommunity.com/wp-content/uploads/2021/12/Habiba-Camp-Farm-5-1024x682.jpg">
+                <!img src="https://organicabiotech.com/wp-content/uploads/2019/08/agriculture-001.jpg" >
+                <hr>
+                <img src="static/images/entr2.jpeg">
+                <hr>
+                <img src="static/images/entr4.jpeg">
+                <hr>
+                <img src="static/images/Pic27.jpeg">
+                <img src="static/images/order.html">
+                
+                
+            </div>
+            <div class="grid-item grid-item-3">
+                <a href="{{url_for('prod_list')}}" class="btn btn-success">عرض منتجات السوق</a>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">معرض منتجات الريف اﻷوربى
+                        القاعه الصيفيه - مدخل الريف اﻷوربي
+                        </h5>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="....">
+                    <div class="card-body">
+                      <h5 class="card-title">Public services</h5>
+                      <p class="card-text">اعلان هام !</p>
+                      <a href="#" class="btn btn-primary">لينك لموقع اﻷداره</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="static/images/cook-house.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">	خدمات عامه - مطعم</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">محل تجاري - مخبز</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">لينك لموقع المحل</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">ورشه خدمه سيارات</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">لينك لموقع المحل</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">خدمات عامه - كهربائى</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">لينك لموقع المحل</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">مزارع الريف</h5>
+                      <p class="card-text">مزرعه حاجه -فاطمه<br>
+                        الموقع<br>
+                        المنتجات<br>
+                        ارقام اﻷتصال.<br>
+                    </p>
+                      <a href="#" class="btn btn-primary">لينك لموقع المزرعه </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more grid items as needed -->
+        </div>
+        <footer class="footer">
+            <strong>&copy; Admin Mail: s.refaat@mail.com</strong>
+        </footer>
+        {% endblock %}
+    </body>
+ </html> 

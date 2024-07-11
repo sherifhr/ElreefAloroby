@@ -112,7 +112,7 @@ def screenshot():
 def home():
     session.clear()
     login_required
-    return render_template('index.html')
+    return render_template('home.html')
     
 def verify_credentials1(name, password):
     if name!="" :

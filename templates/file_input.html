@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Order</title>
+    
+  <script src="/static/script9.js"></script> 
+<script>
+  var outImage ="imagenFondo";
+  function preview_2(obj)
+  {
+    if (FileReader)
+    {
+      var reader = new FileReader();
+      reader.readAsDataURL(obj.files[0]);
+      reader.onload = function (e) {
+      var image=new Image();
+      image.src=e.target.result;
+      image.onload = function () {
+        document.getElementById(outImage).src=image.src;
+      };
+      }
+    }
+    else
+    {
+          // Not supported
+    }
+  }
+</script>
+</head>
+<body>
+    <h1>Welcome Sherif XYX</h1>
+    <h3>Purchase Order Save</h3>
+    
+    <form  action="/save_order1"   method="POST" enctype="multipart/form-data">
+        <input type="file"  onChange="preview_2(this)" id="image_path" 
+        
+        name="image_path" value="/home/sherifnew/orders/PO.png"> 
+        
+        <img id="imagenFondo" style="height:200px; width:300px;">    
+        
+        <input type="submit"  value="Save Order File" > 
+    </form>
+</body>
+</html>

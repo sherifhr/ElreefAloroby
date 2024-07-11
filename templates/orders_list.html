@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  lang="en"    die="rtl">
+<html>
+<head>
+    <style>
+        h5{
+            color: green;
+        }
+        </style>
+	<meta charset="utf-8">
+    <title>{{session['username']}} : Purchase Orders List </title>
+</head>
+
+<body dir="rtl">
+    {% extends "template.html" %}
+    {% block content%}
+    <div class="container">
+        <a href="{{url_for('dashboard')}}" class="DB-button">Dashboard</a>
+        <a href="{{url_for('home')}}" class="home-button"> Home page </a> 
+        <h5>صفحه المالك ..{{session['username']}} <i class="fa fa-user"></i></h5><style> color:red></style>
+        <h2>Purchase Orders List</h2>
+        <table class="table table-striped">
+            <caption>Purchase Orders List</caption>
+            <strong>
+                <thead>
+                    <td>رفم</th> 
+                    <td>رقم الطلب</th>
+                    <td>تاريخ الطلب</th>
+                    <td>المزرعه</td>
+                    <td>اسم المشترى </th>
+                    <td>اسم الملف</td>
+                    <td>عرض الطلب</th>
+                    <td>الغاء الطلب</th>
+                
+                </thead>
+                <tbody>
+                </tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td><a href="{{ url_for('view_order', order_id=row[0]) }}"><i class="fa fa-eye" >View Order</i></a></td>
+                    <td><a href="{{ url_for('delete_order', order_id=row[0]) }}"> &nbsp&nbsp&nbsp <i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a></td>
+                  </tr>
+                {% endfor %}
+                <br>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+</body>
+</html>

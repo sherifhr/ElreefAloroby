@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js">
+    </script>
+    
+    <meta charset="UTF-8" />
+    <title>Purchase Order Form </title>
+    <style>
+        .button-container {
+          display: flex;
+          justify-content:right;
+          margin-top: 20px;
+        }
+        .button-container button {
+          margin: 0 10px;
+        }
+        a {
+        color:white; /* Blue color */
+        }
+        a:hover {
+        color: black;
+        }
+        a {
+        background-color: green; /* Light grey background */
+        padding: 5px 10px; /* Add some padding around the link */
+        border-radius: 4px; /* Add some rounded corners */
+        }
+        a:hover {
+        background-color:white; /* Slightly darker grey background on hover */
+        }
+        .title {
+        color:blue;
+        }
+        thead {
+            color:blue;
+            text-decoration:underline ;
+            background-color:darkgray;
+        }
+        h2{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div id="capture-frame">
+        <a href="{{url_for('dashboard')}}" class="DB-button">Dashboard</a>
+        &nbsp&nbsp
+        <a href="{{url_for('home')}}" class="home-button"> Home page </a> 
+    <h2> مزارع الربف اﻷوربي - طلب شراء</h2>
+    <h3>
+        <hr><h2>
+        <div class="button-container">
+            <button type="button" class="title">رقم الطلب</button>
+            {{order_no}} 
+            <button type="button" class="title">تاريخ الطلب</button>
+            {{order_date}} 
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <button type="button" class="title" >اسم المزرعه</button>
+               {{farm}}
+        </div>
+       
+        <hr>
+        <div class="button-container">
+            <button type="button" class="title" >اسم طالب الشراء</button>
+                {{row[1]}}
+                &nbsp
+            <button type="button" class="title" >تليفون</button>
+                {{row[2]}}
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp
+            <button type="button" class="title" >بريد:</button>
+                {{row[3]}}
+        </div>
+        </h2>
+        <hr>
+        <h3>
+         <table >
+            <thead>
+                <th>الفئه</td>
+                <th>الصنف</td>
+                <th>الكميه</th>
+                <th>العبوه</th>
+                <th>السعر </th>
+                <th>أﻷجمالي</th>
+            <tbody>
+            {% for prod in prods %}
+            <tr>
+                <td> {{ prod[7] }}</td>
+                <td>&nbsp {{ prod[8] }} </td>
+                <td> {{ prod[3] }}</td>
+                <td> {{ prod[9] }}</td>
+                <td> {{ prod[4] }}</td>
+                <td> {{prod[3] * prod[4]}} </td>
+            </tr>
+                {% endfor %}
+        </table>         
+            <hr></h3>
+        <div>
+            <h2>اجمالى السعر - جم</h2>
+            <h2 id="total-price"> </h2>
+        </div>
+    </table>
+
+    <!a href="{{url_for('screenshot')}}"></a>
+    <button onclick="saveAsImage()">1- Save P.O. As Image</button>
+    <br><br>
+    <form  action="/save_order"  method="POST" >
+	    <input type="hidden" id="order_no" name="order_no" value="{{order_no}}">
+        <input type="hidden" id="order_date"  name="order_date" value="{{order_date}}">
+        <input type="hidden" id="order_farm"  name="order_farm" value="{{farm}}">
+        <input type="hidden" id="order_buyer"  name="order_buyer" value="{{row[1]}}">
+        <button type="submit" class="btn btn-danger">2- Save P.O. to DB</button>
+    </form>
+    <br>
+    <a href="{{url_for('view_orders_list')}}">3-View Orders List</a>
+  </div>
+<script>
+    // Calculate the total price using JavaScript
+    var totalPrice = 0;
+    var priceElements = document.querySelectorAll('td:nth-child(6)');  
+    // Select all price cells
+    for (var i = 0; i < priceElements.length; i++) {
+        var price = parseFloat(priceElements[i].textContent);
+        totalPrice += price;
+        }
+        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        console.log(price);
+
+    function saveAsImage() {
+        const findEl = document.getElementById('capture-frame')
+        html2canvas(findEl).then((canvas) => {
+            const link = document.createElement('a')
+            document.body.appendChild(link) 
+            //link.download ="/orders/"+"{{order_no}}"+".jpg"
+            link.download ="{{order_no}}"+".jpg"
+            link.href = canvas.toDataURL("image/jpeg", 0.9);
+            link.click()
+            link.remove()
+        })
+    };
+    </script>
+</body>
+</html>

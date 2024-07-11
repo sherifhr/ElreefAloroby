@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<html>
+<head >
+    <html meta charset="utf-8">
+    <title>Register user</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+  <style>
+    .container {
+      align-items: center;
+      background-color: lightgrey;
+      padding: 10px;
+      float:none;
+      width:30%;
+      text-align: right;
+      }
+    form{
+    align-items: center;
+    text-align: center;
+    
+  }
+  .container input{
+    width: 200px;
+  }
+  </style>
+
+<script>
+    function clearForm() {
+      document.getElementById("myForm").reset();
+    }
+
+    function clearName() {
+    var input = document.getElementById('myName');
+    input.value = '';
+    }
+
+    function clearPassword() {
+    var input = document.getElementById('myPassword');
+    input.value = '';
+}
+  </script>
+  </head>
+<body dir="rtl">
+    <div class="container">
+      <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+    {% if error %}
+      <p>{{ error }}</p>
+      {% endif %}
+      <form method="POST" action="{{ url_for('signup') }}">
+        <h3> <i class="fa fa-fw fa-user"></i>Sign Up Form </h3>
+      	<input type="text" name="name" id="myName" required placeholder="اسم المستخدم"  onfocus="clearName()"> <br>
+      	
+        <input type="text" id="phone"    name="phone"  required  placeholder="تليفون">  <br>
+        
+        <input type="email" id="mail"   name="email"  placeholder="بريد الكترونى">  <br>
+                
+        <input type="password" id="myPassword" name="password" required  placeholder="الرقم السرى"  onfocus="clearPassword()"> <br>
+  	    <br>
+        <input type="submit" value="Save" id="submit" onclick="clearForm()">
+      </form>
+    </div>
+</body>
+</html>

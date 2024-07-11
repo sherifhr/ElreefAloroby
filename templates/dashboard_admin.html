@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eng"   dir="ltr">
+<html>
+
+<head><meta charset="utf-8"> 
+  <title>{{session['username']}} Dashboard</title>
+</head>
+
+<body>
+    {% extends "template.html" %}
+    {% block content %}
+    <div class="container">
+      <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+      <h5>{{session['username']}} <i class="fa fa-user"></i></h5>
+        <h3>Admin Dashboard</h3>
+        <strong>
+        <ul>
+          <h5>
+          <li>     
+            <a class="nav-link active" href="{{ url_for('cart_items_list') }}">Show Cart</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('prod_list1') }}">Show Products</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('add_product') }}">Add products</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('add_farm') }}">Add farm</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('farm_list_admin') }}">Farms list</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('owners_list') }}">Farm Owners list</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{ url_for('buyers_list') }}">Registered Buyers</a>
+          </li>
+          </h5>
+        </ul>
+    </nav>
+    <caption>صفحه مدير الموقع</caption>
+
+  </div>
+
+  <br><br><br>
+  <footer class="footer">
+      <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+  {% endblock %}
+  </body>
+</html>

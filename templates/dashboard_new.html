@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="eng"   dir="ltr">
+<html>
+<head>
+  <!link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css') }}">
+  <meta charset="utf-8"> 
+  <title>{{session['username']}} Dashboard</title>
+<style>
+  h1{
+    text-align: center;
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+  h2{
+    color:darkgreen;
+    font-weight:bolder;
+    text-decoration: underline;
+    }
+    h4{
+        text-decoration: underline;
+        color:red;
+        text-align: center;
+    }
+    h5{
+        text-decoration: ;
+        color:brown;
+        
+        text-align: left;
+        
+    }
+.container{
+  padding-top: 10px;
+}
+</style>
+  </head>
+
+<body dir="rtl">
+    {%extends 'template.html'%}
+    {%block content%}
+    <div class="container">
+      <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+      <strong>
+      <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+      <ul class="nav flex-column">
+        <hr>
+        <h4>عفوا .. ﻻ توجد مزرعه مسجله بأسمك </h4>
+        <h4></h4>
+        <ul>
+          <li>
+            <a class="nav-link" href="{{url_for('add_farm') }}">اضافه مزرعه </a>
+          </li>
+        </ul>
+      </div>
+      <footer class="footer">
+        <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+    </footer>
+
+    {%endblock%}
+      
+  </body>
+</html>
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>El-Reef El-Oroby</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+  <script>
+    function checkLogin() {
+  // Assume you have a variable or function to check the user's login status
+  var isLoggedIn = checkUserLoginStatus();
+
+  var link = document.getElementById('myLink');
+
+  if (isLoggedIn) {
+    link.href="{{url_for('login_market')}}"  // Set the link URL
+    link.removeAttribute('disabled');  // Remove the disabled attribute
+  } else {
+    link.removeAttribute('href');       // Remove the link URL
+    link.setAttribute('disabled', 'disabled');  // Add the disabled attribute
+  }
+  }
+    </script>
+</head>
+<body direction="rtl">
+  {% extends "template.html" %}
+    {% block content %}
+  <div class="container">
+    <a href="{{url_for('home')}}" class="btn btn-primary btn-sm"> Home page </a>
+    {% if session['username'] == 'admin'%} 
+    <a href="{{url_for('dashboard')}}" class="btn btn-warning btn-sm">Dashboard</a>  
+    {% endif%}
+    <stronng>
+    <h2>*** منتجات السوق ***</h2>
+    <br>
+    <div class="button-container">
+      <div class="left-buttons">
+        <a href="{{url_for('login_market')}}" id="myLink" class="btn btn-secondary btn-sm " tabindex="-1" role="button">Market Login &nbsp<i class="fa fa-arrow-down"></i></a>&nbsp
+        <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-user"></i>{{session['username']}}</button>
+      </div>
+      {% if session['username'] %}
+        <a href="{{url_for('cart_items_db')}}" class="btn btn-warning btn-sm " tabindex="-1" role="button">Shopping Cart Table&nbsp<i class="fa fa-cart-arrow-down"></i></a>
+      {% endif %}
+
+      {% if session['username'] %}
+        <a href="{{url_for('cart_items_list1', buyer=session['username'])}}" class="btn btn-warning btn-sm " tabindex="-1" role="button">Shopping Cart &nbsp<i class="fa fa-cart-arrow-down"></i></a>
+        {% endif %}
+      <div class=right-buttons></div>  
+      {% if session['username'] %}
+        <a href="{{url_for('search_by_product')}}" class="btn btn-secondary btn-sm " tabindex="-1" role="button" >Search by products &nbsp<i class="fa fa-search"></i></a>
+        <a href="{{url_for('search_by_farm')}}" class="btn btn-secondary btn-sm " tabindex="-1" role="button">Search by farm &nbsp<i class="fa fa-search"></i></a>
+      {% endif %}
+    </div>
+    {% for prod in prods %}
+    <div class="card mb-2" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-2">
+              <img src="static/images/{{prod[10]}}" class="img-fluid rounded-start" alt="{{prod[10]}}" width="100%"  length="auto">
+              <p>{{prod[3]}}</p>
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+                <h4 class="card-title1"> مزارع   {{prod[9]}}   </h4>
+                <h5 class="card-title2">{{prod[2]}}{{'-'}}{{prod[3]}} </h5>
+                <p class="card-text"><small class="text-body-secondary"> العبوه:{{prod[4]}} </small></p>
+                <p class="card-text"><small class="text-body-secondary">السعر:{{prod[5]}} جم</small></p>
+                <p class="card-text"><small class="text-body-secondary">  تاريخ/وقت اﻷضافه :{{prod[7]}} </small></p>
+          </div>
+          {% if session['username']!=null %}
+                <a href="{{ url_for('add_to_cart', item_id=prod[0], buyer=session['username'] ) }}" class="link-box">
+                <h5>AddX<i class="fa fa-fw fa-cart-plus"></i></h5></a>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>

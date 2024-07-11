@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Order</title>
+    
+  <script src="/static/script9.js"></script> 
+
+</head>
+<body>
+    <h1>Welcome Sherif XYX</h1>
+    <h3>Purchase Order Save</h3>
+    
+    <form  action="/save_order1"   method="POST" enctype="multipart/form-data">
+        <input type="hidden" id="order_no" name="order_no" 
+        value="{{order_no}}">PO_No:&nbsp {{order_no}}</input>
+        <br>
+        <input type="hidden" id="order_date" name="order_date" 
+        value="{{order_date}}">PO_Date:&nbsp {{order_date}}</input>
+        <br>
+        <input type="hidden" id="order_farm" name="order_farm" 
+        value="{{order_farm}}">Farm : &nbsp {{order_farm}}</input>
+        <br>
+        <input type="hidden" id="order_buyer" name="order_buyer" 
+        value="{{order_buyer}}">Buyer Name: &nbsp {{order_buyer}}</input>
+        <br>
+        <input type="file"  onChange="preview_2(this)" id="image_path" 
+        name="image_path" accept=".jpg,.png,.pdf"> 
+        
+        <img id="imagenFondo" style="height:200px; width:300px;">    
+        
+        <input type="submit"  value="Save Order File" > 
+    </form>
+</body>
+</html>

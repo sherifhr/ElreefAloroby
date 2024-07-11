@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Viewer</title>
+</head>
+<body>
+  <div id="pdf-viewer"></div>
+
+  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+  <script>
+    // Fetch the PDF data from the server
+    fetch('/get-pdf-data')
+      .then(response => response.json())
+      .then(data => {
+        // Initialize the PDF.js viewer
+        const container = document.getElementById('pdf-viewer');
+        const pdfViewer = new pdfjsLib.PDFViewer({
+          container: container,
+          // Set additional viewer options if needed
+        });
+
+        // Render the PDF
+        pdfjsLib.getDocument({ data: atob(data.pdf_data) }).promise.then(pdf => {
+          pdfViewer.setDocument(pdf);
+          pdfViewer.currentScaleValue = 'page-fit';
+        });
+      });
+  </script>
+</body>
+</html>

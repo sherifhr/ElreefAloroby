@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"    dir="ltr">
+	<style>
+		footer {
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		  text-align: center;
+		}
+		img { 
+			width:400px;
+			height:300px,	
+		}
+</style>
+			
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Image Gallery</title>
+	</head>
+<body>
+	<!img src="static/images/Pic9.jpeg">
+	{%if prod_name !="" %}
+	<h5>{{ prod_name }}</h5>
+	    <img src="{{ url_for('static', filename='images/'+prod_name+'/'+photo) }}" alt="{{ prod_name }}">
+	{%else%}
+	<img src="{{ url_for('static', filename='images/'+photo) }}" alt="{{ prod_name }}">
+{%endif%}
+</body>
+</html>

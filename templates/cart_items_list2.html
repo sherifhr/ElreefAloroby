@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html  lang="en"    dir="ltr">
+<html>
+<head>
+<meta charset="utf-8">
+<title>Elreef ElOroby Farms</title>
+    
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+
+<style>
+  .item-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .item {
+    cursor: pointer;
+    position: relative;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+  }
+  .dropdown-menu li {
+    padding: 10px;
+  }
+  .dropdown-menu li:hover {
+    background-color: #ddd;
+  }
+  .item:hover .dropdown-menu {
+    display: block;
+  }
+  </style>
+  
+  <script>
+    document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    item.querySelector('.dropdown-menu').classList.toggle('show');
+  });
+
+  item.querySelectorAll('.dropdown-menu li').forEach(option => {
+    option.addEventListener('click', () => {
+      const selectedValue = option.getAttribute('data-value');
+      document.getElementById('selected-value-input').value = selectedValue;
+      item.classList.remove('active');
+      item.querySelector('.dropdown-menu').classList.remove('show');
+    });
+  });
+});
+  </script>
+  
+</head>
+<body dir="rtl"> 
+    {% extends "template.html" %}
+    {% block content %}
+    <div class="container">
+        <a href="{{url_for('home')}}" class="home-button"> Home page </a> 
+        <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+        <h2>*** محتويات سله الشراء-مزرعه {{farm }} ***</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                    <th>No</th>
+                    <th>اسم الصنف</th>
+                    <th>السعر</th>
+                    <th>الكميه</th>
+                    <th>اجمالى</th>
+                    <th>المشتري</th>
+                    <th>تاريخ/وقت الطلب</th>
+                    <th>حاله الطلب</th>
+                    <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody id="farm-list">
+                {% for row in rows %}
+                <strong>
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[8] }}-{{ row[9] }}-{{ row[10] }}</td>
+                    <td>{{ row[5] }}/{{ row[11] }}</td>
+                    <td>{{ row[4] }}{{ row[11] }}</td>
+                    <td>{{ row[4]*row[5] }}</td>
+                    <td><a href="{{url_for('buyer_info', index=row[12])}}" style="font-size:16px;color:red" >{{ row[17] }} </a></td>
+                    <td>{{ row[6] }}</td>
+                    <td><a href="{{url_for('order_status', index=row[12])}}" style="font-size:16px;color:red" >{{ row[7] }} </a></td>
+                    <td><a class="nav-link" href="{{url_for('edit_cartY1', item_id=row[0])}}"> 
+                    <i class="fa fa-edit" style="font-size:24px"></i></a>
+                      </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form method="POST"  action="create_purchase_order2"        enctype="multipart/form-data">
+          <select id="item-dropdown" name="item-dropdown">
+            <option value="">Select Buyer Name</option>
+            {% for item in items %}
+            <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+          </select>
+          <input  type="hidden"  name='farm'  id="farm" value="{{farm}}">
+          <button type="submit"  >Create Puschase Request</button>
+        </form>
+        </div>
+      {% endblock%}
+  </body>
+</html>

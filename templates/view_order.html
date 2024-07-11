@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" >
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Purchase Order</title>
+	</head>
+<body dir="rtl">
+	<div class="container">
+	{{row[1]}}
+		<img src="{{ url_for('static', filename='images/'+'Pic9.jpeg') }}" alt="..." width="8%"  length="8%">
+		<h2>View Purchase Order</h2>
+			</div>	
+	<div class="container">
+		{% extends "template.html" %}
+		{% block content %}
+		<img src="/static/images/{{row[3]}}" alt="..." width="100%"  length="100%">
+		{% endblock %}
+</div>  
+</body>
+</html>

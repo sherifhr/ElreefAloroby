@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Add item to Cart </title>
+
+<style>
+    .image {
+        position: absolute;
+			  border: 1px solid red;
+			  height: 45%;
+			  width: 27%;
+			  top: 23%;
+			  left: 7%;
+   }
+  img {
+        width:  100%;
+        height: 100%;
+        position:relative ;
+        top: 0px;
+        left: 0px;
+    }
+ </style>    
+</head>
+
+<body  onload="javascript:calculateProduct()">
+        {% extends "template.html" %}
+        {% block content %}
+    <div class="container" dir="rtl">
+        <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+        &nbsp&nbsp
+        <a href="{{url_for('cart_items_list1', buyer=session['username'])}}" class="btn btn-warning  " tabindex="-1" role="button">Shopping Cart &nbsp<i class="fa fa-cart-arrow-down"></i></a>
+        <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+        <h3> *** اضافه صنف الي سله الشراء ***</h4>
+        <form action="/update_cartY"     method="POST">
+            <div class="container">
+                <div class="image">
+                    <img src="/static/images/{{rows[6]}}"  alt="{{rows[6]}}">
+                </div>    
+                <button type="button" class="btn btn-dark btn-sm">بيانات الصنف المطلوب</button><br>    
+                <button type="button" class="btn btn-success btn-sm">اسم المزرعه</button>    
+                <button type="button" class="btn btn-light btn-sm">{{rows[8]}}</button>    
+                <button type="button" class="btn btn-success btn-sm">الصنف</button>    
+                <button type="button" class="btn btn-light btn-sm">{{rows[0]}}-{{rows[2]}}-{{rows[3]}}</button>    
+                <input type="hidden" id="id" name="id" value="{{rows[0]}}">
+                <input type="hidden" id="buyer_id" name="buyer_id" value="{{user[0]}}" >
+                <input type="hidden" id="farm_id" name="farm_id" value="{{rows[7]}}" >
+                <input type="hidden" id="package" name="package" value="{{rows[4]}}">
+                <input type="hidden" id="filename" name="filename" value="{{rows[6]}}">
+                
+                <button type="button" class="btn btn-success btn-sm">السعر/كجم</button>
+                <input type="number" id="unit_price"   name="unit_price" value="{{rows[5]}}" > &nbsp   
+                <button type="button" class="btn btn-success btn-sm">الكميه المطلوبه</button>
+                <input type="number" id="quantity"   name="quantity" value="1" >  {{rows[4]}}&nbsp
+                <!input type="file" id="filename" name="filename" value="">
+                <!img src="/static/images/{{rows[6]}}" alt=""   width="265"  height="150">
+                <br>
+                <button type="button" class="btn btn-dark btn-gm">اجمالى السعر
+                <button type="button" class="btn btn-sm"><h4 id="result"></h4></button><br>
+                <input type="hidden" id="order_status" name="order_status" value="pending">
+                <br><br>
+
+                <button type="button" class="btn btn-dark btn-sm">بيانات المشتري</button>  
+                <br>
+                <button type="button" class="btn btn-danger btn-sm">اﻷسم</button>
+                <input type="hidden" id="buyer_id" name="buyer_id" value="{{user[0]}}">
+                
+                <button type="button" class="btn btn-sm btn-light">{{user[1]}}</button>
+
+                <input type="hidden" id="name" name="name" 
+                value="{{user[1]}}">
+                &nbsp
+               <button type="button" class="btn btn-danger btn-sm  btn-danger">تليفون</button>
+                <button type="button" class="btn btn-sm btn-light">{{user[2]}}</button>
+                <input type="hidden"  id="phone" name="phone" 
+                value="{{user[2]}}">
+                &nbsp               
+                <button type="button" class="btn btn-danger btn-sm">بريد الكترونى</button>
+                <button type="button" class="btn btn-sm btn-light">{{user[3]}}</button>
+                <input type="hidden" id="email" name="email" 
+                value="{{user[3]}}" > &nbsp&nbsp
+                <hr>
+                <h5><p><span id="datetime"></span></p></h5>
+            <input type="submit" value="Save"><br><br>
+            </div>
+        </form>
+    </div>                
+    <script>
+          var dt = new Date();
+          document.getElementById("datetime").innerHTML = dt.toLocaleString();
+          
+          const quantity = document.getElementById('quantity');
+          const unit_price = document.getElementById('unit_price');
+          const resultParagraph = document.getElementById('result');
+          // Function to calculate the product and update the result paragraph
+          function calculateProduct() {
+              const value1 = quantity.value;
+              const value2 = unit_price.value;
+              const total = value1 * value2;
+              //const button =document.getElementById('decreaseQuantity(this.nextElementSibling)')
+              resultParagraph.textContent = total + ' جم';
+              document.getElementById("total").innerText = total;
+                      }
+              quantity.addEventListener('input', calculateProduct);
+              button.addEventListener('onclick', calculateProduct);
+              //window.onload = calculateProduct;
+              //document.addEventListener('DOMContentLoaded', calculateProduct);
+              //document.getElementById("total").innerText = total;
+      </script>
+          {% endblock%}
+</body>
+</html>
+<body>

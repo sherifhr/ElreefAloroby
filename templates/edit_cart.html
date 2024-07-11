@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en"    dir="ltr">
+
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<title>Edit product items</title>
+
+<style>
+
+.container-input {
+		width:300px;
+	 	color: blueviolet;
+		text-align: center;
+		}
+	
+		h3{ 
+		color:gold;
+		background-color: blue;
+		text-align: center;
+	}
+
+	input[type="submit"] {
+   text-align: left;
+   font-family: 'Times New Roman', Times, serif;
+   border:blue #ff0000;
+   background-color: lightblue;
+
+ }
+	
+  .item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ddd;
+}
+
+.item:hover .dropdown-menu {
+  display: block;
+}
+  </style>
+
+<script>
+document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    item.querySelector('.dropdown-menu').classList.toggle('show');
+    });
+  });
+  
+</script>
+</head>
+<body dir="rtl">
+  	{% extends "template.html" %}
+	{% block content %}
+	<div class="container">
+		<a href="{{url_for('home')}}" class="home-button"> Home page </a>    
+		<h2>مرحبا ...{{item[15]}}  </h2>
+		<h3> *** تعديل سله الشراء ***</h3>
+		<hr>
+		<form  action="/update_cartY1" method="POST">
+			<div class="container">
+				<input type="hidden" id="id" name="id"  
+				value="{{item[0]}}" >
+				<input type="hidden" id="buyer_id" name="buyer_id" 
+				value="{{ item[1]}}">
+				<input type="hidden" id="product_id" name="product_id"  
+				value="{{ item[2]}}" >
+				<input type="hidden" id="farm_id" name="farm_id"  value="{{ item[3]}}" >
+				
+				<button type="button" class="btn btn-dark btn-sm">الصنف</button>
+				<button type="button" class="btn btn-light btn-sm">{{ item[9]}}-{{ item[10]}}</button>
+				<button type="button" class="btn btn-dark btn-sm">العبوه</button>
+				<input type="text" id="package" name="package" value="{{item[11]}}">
+				&nbsp&nbsp
+				<button type="button" class="btn btn-dark btn-sm">اسم المشترى</button>
+				<button type="button" class="btn btn-light btn-sm">{{item[15]}}{{item[1]}}</button>
+				&nbsp
+				<button type="button" class="btn btn-dark btn-sm">اسم المزرعه</button>
+				<button type="button" class="btn btn-light btn-sm">{{item[3]}}{{item[13]}}</button>
+	  		&nbsp
+				<button type="button" class="btn btn-dark btn-sm">تاريخ الطلب</button>
+				<button type="button" class="btn btn-light btn-sm">{{item[6]}}</button>
+				<br><br>
+				<button type="button" class="btn btn-dark btn-sm">الكميه</button>
+				<input type="number" id="quantity" name="quantity" value="{{ item[4] }}" >
+				<button type="button" class="btn btn-dark btn-sm">السعر</button>
+				<input type="number"  id="unit_price" name="unit_price" value="{{item[5]}}" >
+			<button type="button" class="btn btn-dark btn-sm">حاله الطلب</button>
+			<!input type="text" id="order_status"  name="order_status" value="{{item[7]}}">
+			<select id="order_status" name="order_status">
+				<option value="{{item[7]}}">{{item[7]}}</option>
+				<option value="option1">Option 1</option>
+				<option value="option2">Option 2</option>
+			</select>
+		</div>	
+		<input type="submit" value="Save">
+	</form>
+	</div>
+	 {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html  lang="en"   dir="ltr">
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>{{session['username']}} : Market products</title>
+</head>
+<!----Admin product list-->
+<body dir="rtl">
+    {% extends "template.html" %}
+    {% block content %}
+    <div class="container">
+        <a href="{{url_for('home')}}" class="home-button"> Home page </a>     
+        <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+       <h2>  *** منتجات المزرعه ***</h2>
+            <table class="table caption-top">
+                <caption>منتجات المزرعه</caption>
+                <strong>    
+                <thead>
+                    <tr>
+                        <td>رقم</th>
+                        <td>اسم الصنف</td>
+                        <td>السعر/العبوه</td>
+                        <td>المخزون</td>
+                        <td>المزرعه</td>
+                        <td>تاريخ/ساعه اﻷضافه</td>
+                        <td>تعديل</td>
+                        <td>الغاء</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if prods  %}
+                    {% for prod in prods %}
+                    <tr>
+                        <td>{{ prod[0] }}</td>
+                        <td>{{ prod[2] }}-{{prod[3]}}</td>
+                        <td>{{ prod[5] }}/{{ prod[4] }}</td>
+                        <td>{{ prod[6] }}{{ prod[4] }}</td>
+                        <td>{{ prod[9] }}</td>
+                        <td>{{ prod[7] }}</td>
+                        <td><a href="{{ url_for('edit_product', item_id=prod[0]) }}">
+                            <i class="fa fa-edit" style="font-size:24px"></i></a></td>  
+                        <td><a href="{{ url_for('delete_product', item_id=prod[0]) }}">
+                            <i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a></td>  
+                    </tr>
+                    </strong>
+                    {% endfor %}
+                {% else %}
+                {% endif %} 
+              </tbody>
+            </table>
+        </div>
+       {% endblock %}
+</body>
+</html>

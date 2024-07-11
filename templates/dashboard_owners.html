@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="eng"  >
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>{{session['username']}} Dashboard</title>
+</head>
+<body dir="rtl">
+    {% extends "template.html" %}
+    {% block content %}
+    <div class="container">  
+      <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+      <strong>
+        <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+      <strong>
+      <h2>*** صفحه ملاك المزارع  ***</h2>
+      <ul>
+        <h3>مزرعه {{nos[1]}}</h3>
+        <li>
+          <a class="nav-link" href="{{url_for('prod_list2', idx=nos[0]) }}">منتجات المزرعه
+          <i class='fa fa-apple' style="font-size:20px;color:red"></i>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{url_for('add_productY', farm_id=nos[0]) }}">اضافه منتجات
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{url_for('cart_items_list2', farm=nos[1] )}}" 
+          >طلبات شراء منتجات ألمزرعه<i class="fa fa-bullhorn"  style="font-size:20px;color:red"></i></a>
+        </li>
+        <l!i>
+          <!a class="nav-link" href="">  
+          <!i class="fa fa-edit" style="font-size:24px"></i></a>
+        <!/li>
+        <!li>
+          <!a class="nav-link" href="">
+          <!i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a>
+        <!/li>
+      </h5>
+      </ul>
+    <caption>صفحه ملاك المزارع</caption>
+  </div>
+  <footer class="footer">
+    <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+
+  {% endblock %}
+  </body>
+</html>

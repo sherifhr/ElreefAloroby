@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lan="en" dir="ltr">
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+   
+		<script src="/static/script9.js"></script> 
+
+		<style>
+			.form-container {
+				 display: flex;
+				 justify-content: center;
+				 align-items: center;
+				 height: 100vh;
+		 
+		 / }
+			 .form-container input {
+				 width: 20px;
+				 height: 30px;
+			 }
+			 input[type="submit"]:hover {
+				 width: 200px;
+				 height: 30px;
+				 color:blue;
+				 /*background-color: red;*/
+			 }
+		 
+			 .form-container select {
+				 width: 200px;
+				 height: 30px;
+			 }
+		 #imagenFondo {
+				 position: absolute;
+				 border: 1px solid blue;
+				 height: 200px;
+				 width: 250px;
+				 top: 200px;
+				 left: 165px;
+		 }
+	 div {
+		 padding: 2px; /* Adjust the value as needed */
+		 margin-bottom:10px; 
+		 margin-top: 10px;
+	 }
+	 .container items {
+		 padding: 8px; /* Adjust the value as needed */
+		 margin-bottom:110px; 
+		 margin-top: 10px;
+	 }
+	 </style>
+	 
+	<title>
+		<h3> add_product اضافه منتجات الى السوق </h3>
+	</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	{% extends "template.html" %}
+	{% block content %}
+
+	<div class="container">
+		<a href="{{url_for('dashboard')}}" class="DB-button">Dash Board</a>
+		<a href="{{url_for('home')}}" class="home-button">Home page</a>
+	<form method="POST" action="/submit" enctype="multipart/form-data">
+			<div class="container">
+			<h3>B-اضافه منتجات للبيع بالسوق </h3>
+			<br>
+			<select name="farm_id"  id="farm_id" placeholder="Select Farm">
+					<option value="{{farm_id}}" selected>أختار المزرعه</option>
+					{% for farm in farms %}
+						<option value="{{farm.name}}"> {{farm.name}}</option> 
+					{% endfor %}
+				</select>
+				<select name="prod_category" id="mainDropdown" onchange="populateSubDropdown()">
+					<option value="selected">اختار الصنف</option>
+					<option value="منتجات_البان">منتجات البان</option>
+					<option value="فاكهه">فاكهه</option>
+					<option value="خضراوات">خضراوات</option>
+					<option value="منتجات_اخرى">منتجات_اخرى</option>
+				</select>
+				<select name="prod_name"  id="subDropdown">
+					<option value="">اختار المنتج</option>
+				</select>
+				&nbsp
+				<input type="file"  onChange="preview_2(this);" id="image_path" 
+          name="image_path" accept=".jpg,.png,.pdf"> 
+	      <img id="imagenFondo" >
+			</div>
+			<div class="container">
+				<button type="button" class="btn btn-secondary btn-sm">  &nbspالعبوه&nbsp</button>
+				<input type="radio" id="package" name="package" value="كج" checked>كجم
+					<input type="radio" id="package" name="package" value="حبه" >حبه
+					<input type="radio" id="package" name="package" value="صندوق" > صندوق
+			</div>
+			<div class="container">
+				<button type="button" class="btn btn-secondary btn-sm">  &nbspSTOCK&nbsp</button>
+				<input type="integer"  id="stock" name="stock"  value="0" >
+				&nbsp&nbsp&nbsp
+				<button type="button" class="btn btn-secondary btn-sm">  &nbspالسعر&nbsp</button>
+				<input type="integer"  id="unit_price" name="unit_price"  value="0" >
+			</div>
+			<div class="container">
+			
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="submit"   id="submit" value="Save Record" > 
+			</div>
+		</div>      
+	</form>
+		{% endblock %}
+</body>
+</html>

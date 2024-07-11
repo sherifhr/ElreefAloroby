@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+
+body {
+      margin: 0;
+      padding-bottom: 50px; /* Create space at the bottom for the buttons */
+    }
+    .button-container {
+      position:fixed;
+      left: 0;
+      bottom: 0;
+      width: 99%;
+      align-content: center;
+      height: auto;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      padding-right: 10px;
+      }
+    .button-container button {
+      /*padding: 10px 20px;*/
+      padding-right: 10px;
+      padding-left: 10px;
+      
+      font-size: 16px;
+      background-color: rgb(255, 214, 127);
+    }
+    .gallery {
+        position:relative;
+        image-orientation: flip;
+        }
+    img {
+      max-width: 100%;
+      max-height: auto;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    } 
+    </style>
+  </head>
+<body>
+  <a href="{{url_for('home')}}" class="home-button"> Home page </a>
+
+  <div class="container">
+  <img id="photo" src="/static/images/Pic7.jpeg" alt="Photo">
+    <div class="button-container">
+      <button id="backwardButton">Backward</button>
+      <button id="forwardButton">Forward</button>
+    </div>
+  </div>
+
+<script>
+            var photos = [
+              "/static/images/Pic1.jpg",
+              "/static/images/Pic2.jpg",
+              "/static/images/Pic3.jpg",
+              "/static/images/Pic4.jpg",
+              "/static/images/Pic7.jpeg",
+              "/static/images/Pic8.jpeg",
+              "/static/images/Pic9.jpeg",
+              "/static/images/Pic10.jpeg",
+              "/static/images/Pic11.jpeg",
+              "/static/images/Pic12.jpeg",
+              "/static/images/Pic13.jpeg",
+              "/static/images/Pic14.jpeg",
+              "/static/images/Pic15.jpeg",
+              "/static/images/Pic16.jpeg",
+              "/static/images/Pic17.jpeg",
+              "/static/images/Pic18.jpeg",
+              "/static/images/Pic19.jpeg",
+              "/static/images/Pic20.jpeg",
+              "/static/images/Pic21.jpeg",
+              "/static/images/Pic22.jpeg",
+              "/static/images/Pic23.jpeg",
+              "/static/images/Pic24.jpeg",
+              "/static/images/Pic25.jpeg",
+              "/static/images/Pic26.jpeg",
+              "/static/images/Pic27.jpeg",
+              "/static/images/Pic18.jpeg",
+              "/static/images/Pic29.jpeg",
+              "static/images/Pic30.jpeg",
+              "static/images/Pic31.jpeg",
+              "static/images/Pic32.jpeg",
+              "static/images/Pic33.jpeg",
+              "static/images/Pic34.jpeg",
+              "static/images/Pic35.jpeg",
+              "static/images/Pic36.jpeg",
+              "static/images/Pic37.jpeg",
+
+              // Add more photo paths as needed
+            ];
+        
+            var currentPhotoIndex = 0;
+            var photoElement = document.getElementById("photo");
+            var backwardButton = document.getElementById("backwardButton");
+            var forwardButton = document.getElementById("forwardButton");
+        
+            function showCurrentPhoto() {
+              photoElement.src = photos[currentPhotoIndex];
+            }
+        
+            function navigateForward() {
+              currentPhotoIndex++;
+              if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
+              }
+              showCurrentPhoto();
+            }
+        
+            function navigateBackward() {
+              currentPhotoIndex--;
+              if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
+              }
+              showCurrentPhoto();
+            }
+        
+            backwardButton.addEventListener("click", navigateBackward);
+            forwardButton.addEventListener("click", navigateForward);
+            
+            console.log(photos.length)
+            console.log(currentPhotoIndex)
+
+            
+            // Show the initial photo
+            showCurrentPhoto();
+
+    </script>
+</body>
+</html>

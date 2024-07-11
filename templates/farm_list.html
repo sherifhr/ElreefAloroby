@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  lang="en"    die="rtl">
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>{{session['username']}} : Farms List </title>
+</head>
+
+<body dir="rtl">
+    {% extends "template.html" %}
+    {% block content%}
+    <div class="container">
+        <a href="{{url_for('dashboard')}}" class="DB-button">Dashboard</a>
+        <a href="home" class="home-button">Home page</a>
+        <h5>مرحبا ..{{session['username']}} <i class="fa fa-user"></i></h5>
+        <table class="table table-striped">
+            <caption>Farms List</caption>
+                <strong>
+                <thead>
+                    <td>رقم</th> 
+                    <td>اسم المزرعه</th>
+                    <td>تليفون </th>
+                    <td>بريد الكترونى </th>
+                    <td>عنوان المزرعه</th>
+                    <td>عنوان المزرعه</th>
+                </thead>
+                <tbody>
+                <strong>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                   
+                </tr>
+                {% endfor %}
+                <br>
+            </tbody>
+        </table>
+    </div>
+        <footer class="footer">
+        <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+    </footer>
+{% endblock %}
+</body>
+</html>
+

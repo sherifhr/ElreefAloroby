@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"  dir="ltr">
+<htlm>
+  <head>
+    <meta charset="utf-8">
+    <title>Login page</title>
+    
+  <script>
+    function clearForm() {
+    document.getElementById("myForm").reset();
+    }
+    function goBack() {
+    window.history.back();
+    }
+    function clearName() {
+    var input = document.getElementById('myName');
+    input.value = '';
+    }
+    function clearmyPassword() {
+    var input = document.getElementById('myPassword');
+    input.value = '';
+}
+
+  </script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+<style>
+.container {
+    align-items:center;
+    background-color: lightgrey;
+    padding: 10px;
+    float:none;
+    width:30%;
+    text-align:right;
+       }
+      
+  .container input{
+    width: 200px;
+  }
+  form{
+    align-items: center;
+    text-align: center;
+      }
+  </style>
+</head>
+<body dir="rtl">
+  {% if error %}
+  <p>{{ error }}</p>
+  {% endif %}
+  <div class="container">
+    <!div class="dropdown">
+      <a href="{{url_for('login_market')}}" class="home-button">Login to Market</a>
+      &nbsp
+      <a href="{{url_for('home')}}" class="home-button">Home</a>
+      
+      <form method="POST" action="{{ url_for('login') }}" >
+        <h3> Login to Farm </h3>
+        <input type="text" name="name" id="myName" placeholder="اسم المستخدم"  onfocus="clearName()">
+        <input type="password" name="password" id="myPassword"  placeholder="الرقم السرى" onfocus="clearmyPassword()">
+        {% if username and password ==0 %}
+                print('username new error')     
+        {% endif%} 
+        <input type="submit"  id="submit" value="Submit"  onclick="goBack()">
+        <br><br>
+        <a href="{{ url_for('signup') }}" class="signup-button">Sign Up</a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

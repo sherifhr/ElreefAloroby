@@ -1,4 +1,9 @@
-{ "builds": [ { "src":"app.py", "use":"@vercel/python" } ], "routes": [ { "src":"/(.*)", "dest":"app.py" } ] } Copy
-
-Source: Genelify.com | How to Deploy a Python or Flask App to Vercel For Free - Genelify.
-https://www.genelify.com/blog/deploy-a-python-flask-app-to-vercel
+{
+  "version": 2,
+  "builds": [
+    { "src": "app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/app.py" }
+  ]
+}

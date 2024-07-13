@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<html> <!script src="script9.js"></script>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+  <link rel="stylesheet" href="http://www.fontstatic.com/f=jazeera,jazeera-light">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/amiri.css";>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/thabit.css">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+   
+  <style>
+.footer {
+    font-size: small;
+    text-align: center;
+    color: darkviolet;
+    position:fixed ;
+    bottom: 5px;
+    width: 100%;
+    height: 30px;
+         }
+</style>
+
+  <!link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+  <!link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css') }}">
+    <!script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!link rel="stylesheet" href="static/css/bootstrap.css">
+    <!script src="js/bootstrap.js"></script>
+    <title>Wellcom :{{session['username']}} : Home Page </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!------ js below for controlling dropdown keys------> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <script>
+      function clearForm() {
+        document.getElementById("myForm").reset();
+      }
+      function displayHomePage(){
+      window.location.href="index-a.html";
+      }
+      function goBack() {
+      window.history.back();
+      }
+      function printDateTime() {
+        var currentDate = new Date();
+        var dateTimeElement = document.getElementById("datetime");
+        dateTimeElement.innerHTML = currentDate.toLocaleString();
+      }
+</script>
+</head>
+<body>
+
+{% block content%}
+  session=['username']
+  <footer class="footer">
+        <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+{% endblock %}
+
+</body>
+</html>
